@@ -29,6 +29,12 @@
   <a href="README.md">English</a> | <a href="README.zh-CN.md">中文</a>
 </p>
 
+---
+
+> **Fork 说明。** 本仓库是 [YuJunZhiXue/dsh-purge](https://github.com/YuJunZhiXue/dsh-purge) 的 fork，由 ykwylyyyn 维护。
+> 在原版基础上把补丁引擎升级到 v2——多级匹配、事务化写入、漂移诊断（见 [docs/patch-engine-v2.md](docs/patch-engine-v2.md)）。
+> 原项目的署名、NOTICE 与许可要求继续适用。
+
 ## 作者说几句
 
 市面上有人把这份开源明目张胆挂出去卖。后面作者这边被找去谈过话——经过不必写，你们自己品。
@@ -425,6 +431,8 @@ dsh-purge --uninstall
 ```sh
 # CLI
 dsh-purge --status
+dsh-purge --verify          # 只读诊断：漂移 / 半完成 / 重复叠层
+dsh-purge --explain <id>    # 某条补丁的命中策略与漂移线索
 dsh-purge --apply
 dsh-purge --revert
 dsh-purge --uninstall
@@ -485,10 +493,22 @@ DSH 会按顺序执行同一批中的 Bash 调用。旧版 dsh-purge 把默认�
 ```sh
 node --check lib/index.js
 node --check lib/core.js
+node --check lib/patch-match.js
+node --check lib/patch-txn.js
+node --check lib/patch-doctor.js
 node --check lib/rewind.js
 node --check lib/skills.js
 node --check client.js
+
+# 补丁引擎单测（匹配链 / 事务化 / 漂移诊断 / 集成）
+npm test
+
+# 只读诊断当前宿主：版本面 + clean/pending/partial/duplicate/drifted
+node bin/dsh-purge.js --verify
+node bin/dsh-purge.js --explain 9
 ```
+
+补丁引擎 v2 的设计（多级匹配、事务化写入、漂移诊断）见 [docs/patch-engine-v2.md](docs/patch-engine-v2.md)。
 
 ---
 

@@ -29,6 +29,13 @@
   <a href="README.md">English</a> | <a href="README.zh-CN.md">中文</a>
 </p>
 
+---
+
+> **Fork note.** This repository is a fork of [YuJunZhiXue/dsh-purge](https://github.com/YuJunZhiXue/dsh-purge), maintained by ykwylyyyn.
+> The patch engine has been upgraded to v2 — multi-strategy matching, transactional writes, drift diagnostics
+> (see [docs/patch-engine-v2.md](docs/patch-engine-v2.md)). All attribution, notice and license requirements of the
+> original project still apply.
+
 ## A note from the author
 
 People have been selling this open-source work in the open. After that, the author was asked to come in and talk. No need to spell out the rest. Read between the lines.
