@@ -109,6 +109,8 @@ node scripts/decrypt-prompt-slot.mjs --out default-prompt.md
 
 这份正文与仓库里 `docs/v1.1.34-prompt-inject.md`、`docs/注入方式改造方案` 描述的设计一致：**先改写人格与拒答策略，再交给宿主去跑**。它只是"默认注入正文"；运行时还会被 `identity.js` 再加工（身份卡、ChatML 信封、模式适配），所以槽 ≠ 最终系统提示词。
 
+逐段全文解析（226 行、25 条 Scoped Rules、路由表、机制总结）见 [default-prompt-analysis.md](default-prompt-analysis.md)。
+
 ## 7. 安全评估
 
 1. **保密性 = 0**：密钥材料 in-band。`MASK` + 公开常量即可解出全文，无需任何破解。所谓"加密"只能防：随手 `strings`/grep 到关键词、GitHub 搜索命中提示词、简单静态扫描。
