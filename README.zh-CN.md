@@ -516,6 +516,18 @@ node scripts/decrypt-prompt-slot.mjs          # 算法/指纹/结构提纲
 node scripts/decrypt-prompt-slot.mjs --out d.md  # 解出明文（本地分析用）
 ```
 
+## 文档索引
+
+| 文档 | 内容 |
+| --- | --- |
+| [docs/analysis-overview.md](docs/analysis-overview.md) | 全仓代码/能力分析：宿主补丁、人格与角色系统、演练台、风险与自证 |
+| [docs/architecture-timeline.md](docs/architecture-timeline.md) | 五张时序图：启动/apply、系统提示装配、注入来源、红队角色与锚点门 |
+| [docs/patch-matrix.csv](docs/patch-matrix.csv) | 82 条补丁 × 205 条替换对照表（能力分组 / 目标文件 / 命中串 / 收敛策略） |
+| [docs/patch-engine-v2.md](docs/patch-engine-v2.md) | 补丁引擎 v2：多级匹配 / 事务化 / 漂移诊断 |
+| [docs/prompt-slot-decrypt.md](docs/prompt-slot-decrypt.md) | 默认提示词加密槽解密与安全评估 |
+| [docs/default-prompt-analysis.md](docs/default-prompt-analysis.md) | 默认提示词全文逐段解析 |
+| [docs/skills-lab-pack.md](docs/skills-lab-pack.md) | 授权技能包说明与扩展方式 |
+
 ---
 
 ## 工作原理
