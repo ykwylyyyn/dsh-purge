@@ -509,6 +509,12 @@ node bin/dsh-purge.js --explain 9
 ```
 
 补丁引擎 v2 的设计（多级匹配、事务化写入、漂移诊断）见 [docs/patch-engine-v2.md](docs/patch-engine-v2.md)。
+内置默认提示词的「加密槽」解密与安全分析见 [docs/prompt-slot-decrypt.md](docs/prompt-slot-decrypt.md)：
+
+```sh
+node scripts/decrypt-prompt-slot.mjs          # 算法/指纹/结构提纲
+node scripts/decrypt-prompt-slot.mjs --out d.md  # 解出明文（本地分析用）
+```
 
 ---
 
